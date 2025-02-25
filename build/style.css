@@ -14,35 +14,35 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 @font-face {
   font-family: "Montserrat";
-  src: url("../dev/assets/fonts/Montserrat-Light.ttf") format("truetype");
+  src: url("./assets/fonts/Montserrat-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../dev/assets/fonts/Montserrat-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/Montserrat-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../dev/assets/fonts/Montserrat-Medium.ttf") format("truetype");
+  src: url("./assets/fonts/Montserrat-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../dev/assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
+  src: url("./assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../dev/assets/fonts/Montserratt-ExtraBold.ttf") format("truetype");
+  src: url("./assets/fonts/Montserrat-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -67,34 +67,40 @@ body {
   min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .banner .banner-description {
   font-size: 600;
   margin-bottom: 0.5em;
   color: #fff;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 5rem;
+  line-height: 1.1;
 }
 
 h2 {
-  font-size: 2.375rem;
+  font-size: 3.875rem;
+  line-height: 1.1;
 }
 
 h3 {
   font-size: 2rem;
+  line-height: 1.32;
 }
 
 h4 {
-  font-size: 1.75rem;
+  font-size: 1.625rem;
+  line-height: 1.23;
 }
 
 h5 {
   font-size: 1.5rem;
+  line-height: 1.46;
 }
 
-h6 {
+h6, .banner .banner-description {
   font-size: 1.25rem;
+  line-height: 1.62;
 }
 
 p {
@@ -131,6 +137,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   z-index: 1;
+  padding: 0;
 }
 .btn.btn-outline svg {
   height: 37px;
@@ -140,6 +147,94 @@ a:hover {
   height: 0;
 }
 
+.gradient {
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(223deg, #237249 0%, #35C66B 100%);
+}
+
+.btn {
+  font-size: 24px;
+  ding: 25px 54px;
+  display: inline-block;
+  border-radius: 83px;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  background: transparent;
+  color: #fff;
+  transition: 0.3s;
+  position: relative;
+}
+.btn:hover {
+  color: #fff;
+}
+.btn:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -15px;
+  height: 0;
+  width: 0;
+  background-color: rgba(255, 255, 255, 0.4196078431);
+  transform: skew(-25deg, 0);
+  transition: 0.3s;
+}
+.btn.btn-primary {
+  font-weight: 600;
+  background-image: linear-gradient(210deg, #237249 0%, #35C66B 100%);
+}
+.btn.btn-primary:hover::after {
+  animation: 0.3s btn-secondary 1;
+}
+.btn.btn-secondary {
+  position: relative;
+  background-color: #121517;
+}
+.btn.btn-secondary::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background-image: linear-gradient(140deg, #BBB3B3 0%, #121517 100%);
+  z-index: -1;
+  border-radius: 40px;
+}
+.btn.btn-secondary:hover::after {
+  animation: 0.3s btn-secondary 1;
+}
+
+@keyframes btn-secondary {
+  0% {
+    height: 0;
+    width: 0;
+    transform: skew(-25deg, 0);
+    right: 0;
+  }
+  10% {
+    height: 0;
+    width: 0;
+    transform: skew(-25deg, 0);
+    right: 35px;
+  }
+  15% {
+    height: 100%;
+    width: 15px;
+    transform: skew(-25deg, 0);
+    right: 55px;
+  }
+  90% {
+    transform: skew(-25deg, 0);
+    right: calc(100% - 35px);
+    height: 100%;
+    width: 0;
+  }
+  100% {
+    transform: skew(-25deg, 0);
+    right: calc(100% - 35px);
+    height: 0;
+    width: 0;
+  }
+}
 header {
   position: relative;
   padding: 48px 0;
@@ -198,6 +293,27 @@ header .btn-burger {
   opacity: 0;
 }
 
+.banner .container {
+  display: flex;
+  gap: 24px;
+}
+.banner-content {
+  max-width: 574px;
+}
+.banner h1 {
+  font-weight: 800;
+  margin-bottom: 54px;
+}
+.banner .banner-description {
+  color: #D9D9D9;
+  font-weight: 400;
+  margin-bottom: 54px;
+}
+.banner-btn-group {
+  display: flex;
+  gap: 16px;
+}
+
 .footer {
   margin-top: auto;
   background-color: #0B0C0D;
@@ -224,7 +340,7 @@ header .btn-burger {
   background: center/contain no-repeat;
   transform: translate(-50%, -50%);
   z-index: -1;
-  background-image: url("/dev/assets/img/decorate__footer-md.png");
+  background-image: url("./assets/img/decorate__footer-md.png");
   width: 371px;
   height: 260px;
   transform: translate(-50%, -50%);
@@ -267,7 +383,7 @@ header .btn-burger {
   background: center/contain no-repeat;
   transform: translate(-50%, -50%);
   z-index: -1;
-  background-image: url("/dev/assets/img/decorate__footer-lg.png");
+  background-image: url("./assets/img/decorate__footer-lg.png");
   width: 1250px;
   height: 906px;
 }
@@ -288,7 +404,7 @@ header .btn-burger {
   left: -75px;
   top: -40px;
   background: center/contain no-repeat;
-  background-image: url("/dev/assets/img/decorate__footer-sm.png");
+  background-image: url("./assets/img/decorate__footer-sm.png");
   width: 168px;
   height: 153px;
 }
@@ -311,7 +427,7 @@ header .btn-burger {
   background: center/contain no-repeat;
   transform: translate(-50%, -50%);
   z-index: -1;
-  background-image: url("/dev/assets/img/decorate__footer-md.png");
+  background-image: url("./assets/img/decorate__footer-md.png");
   width: 371px;
   height: 260px;
 }
