@@ -1,197 +1,163 @@
 *{
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html{
-     font-family: $font-primary;
-     font-size: $font-size;
-     background-color: $bg-color;
-     color: $text;
-     scroll-behavior: smooth;
+    font-family: $font-primary;
+    font-size: $font-size;
+    background-color: $bg-color;
+    color: $text;
+    scroll-behavior: smooth;
 }
 
 body{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
 }
 
 h1,h2,h3,h4,h5,h6{
-    font-size: 600;
-    margin-bottom: .5em;
-    color: $title-color;
+   font-size: 600;
+   margin-bottom: .5em;
+   color: $title-color;
 }
 
 h1{
-     font-size: 5rem;
-     line-height: 1.1;
+    font-size: 5rem;
+    line-height: 1.1;
 }
- 
+
 h2{
-     font-size: 3.875rem;
-     line-height: 1.1;
+    font-size: 3.875rem;
+    line-height: 1.1;
 }
 
 h3{
-     font-size: 2rem;
-     line-height: 1.32;
+    font-size: 2rem;
+    line-height: 1.32;
 }
 
 h4{
-    font-size: 1.625rem;
-    line-height: 1.23;
+   font-size: 1.625rem;
+   line-height: 1.23;
 }
- 
+
 h5{
-    font-size: 1.5rem;
-    line-height: 1.46;
+   font-size: 1.5rem;
+   line-height: 1.46;
 }
 
 h6{
-    font-size: 1.25rem;
-    line-height: 1.62;
+   font-size: 1.25rem;
+   line-height: 1.62;
 }
- 
+
 p{
-     font-size: 1rem;
+    font-size: 1rem;
 }
 
 img{
-    height: auto;
-    max-width: 100%;
+   height: auto;
+   max-width: 100%;
 }
 
 a{
-    &:hover{
-        color: $secondary-color;
-    }
+   &:hover{
+       color: $secondary-color;
+   }
 }
 
 .container{
-    max-width: 1278px;
-    padding: 0px 12px;
-    margin-left: auto;
-    margin-right: auto;
+   max-width: 1278px;
+   padding: 0px 12px;
+   margin-left: auto;
+   margin-right: auto;
 }
 
 ::selection{
-    color:$bg-color;
-    background-color: $primary-color;
+   color:$bg-color;
+   background-color: $primary-color;
 }
 
 .btn{
-    &.btn-outline{
-        width: 84px;
-        height: 84px;
-        border: 1.5px solid $primary-color;
-        border-radius: 29px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-        padding: 0;
+   &.btn-outline{
+       width: 84px;
+       height: 84px;
+       border: 1.5px solid $primary-color;
+       border-radius: 29px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       z-index: 1;
+       padding: 0;
 
-        svg {
-            height: 37px;
-        }
-    }
+       svg {
+           height: 37px;
+       }
+   }
 }
 
 .svg-sprite {
-    height: 0;
+   height: 0;
 }
 
 .gradient{
-    background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(223deg, $primary-color 0%, $secondary-color 100%);
+   background-clip: text;
+   color: transparent;
+   background-image: linear-gradient(223deg, $primary-color 0%, $secondary-color 100%);
 }
 
-.btn {
-    color: $title-color;
-    font-size: 24px;
-    border-radius: 50px;
-    border: none;
-    text-decoration: none;
-    padding: 23px 54px;
-    background: transparent;
-    display: inline-block;
-    text-align: center;
-    transition: .3s;
-    position: relative;
+.btn{
+   font-size: 24px;
+   padding: 25px 54px;
+   display: inline-block;
+   border-radius: 83px;
+   border: none;
+   text-decoration: none;
+   text-align: center;
+   background: transparent;
+   color: $title-color;
+   transition: .3s;
+   position: relative;
 
-    &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: -15px;
-        height: 0;
-        width: 0;
-        background-color: #ffffff6b;
-        transform: skew(-25deg, 0);
-        transition: .3s;
-    }
+   &::after{
+       @include template-light;
+       background-image: url("../assets/img/btn-hover-primary.svg");
+       width: 0;
+       height: 0;
+   }
 
-    &:hover {
-        color: #fff;
-    }
+   &:hover {
+       color: #fff;
+       &::after{
+           width: 500%;
+           height: 500%;
+           transition: .5s;
+       }
+   }
 
-    &.btn-secondary {
-        position: relative;
-        background-color: $bg-color;
+   &.btn-primary{
+       font-weight: 600;
+       background-image: linear-gradient(210deg, $primary-color 0%, $secondary-color 100%);
+   }
 
-        &::before {
-            content: "";
-            position: absolute;
-            inset: -2px;
-            background-image: linear-gradient(140deg, #BBB3B3 0%, #121517 100%);
-            z-index: -1;
-            border-radius: 40px;
-        }
-        
-        &:hover {
-            &::after {
-                animation: .3s btn-secondary 1;
-            }
-        }
-    }
-}
+   &.btn-secondary{
+       position: relative;
+       background-color: $bg-color;
 
-@keyframes btn-secondary {
-    0% {
-        height: 0;
-        width: 0;
-        transform: skew(-25deg, 0);
-        right: 0;
-    }
+       &::before {
+           content: "";
+           position: absolute;
+           inset: -2px;
+           background-image: linear-gradient(140deg, #BBB3B3 0%, #121517 100%);
+           z-index: -1;
+           border-radius: 40px;
+       }
 
-    10% {
-        height: 0;
-        width: 0;
-        transform: skew(-25deg, 0);
-        right: 35px;
-    }
-
-    15% {
-        height: 100%;
-        width: 15px;
-        transform: skew(-25deg, 0);
-        right: 55px;
-    }
-
-    90% {
-        transform: skew(-25deg, 0);
-        right: calc(100% - 35px);
-        height: 100%;
-        width: 0;
-    }
-
-    100% {
-        transform: skew(-25deg, 0);
-        right: calc(100% - 35px);
-        height: 0;
-        width: 0;
-    }
+       &::after {
+           background-image: url("../assets/img/btn-hover-secondary.svg");
+       }
+   }
 }
