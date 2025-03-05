@@ -17,7 +17,7 @@
         position: relative;
 		&::before{
             @include template-light;
-            background: url("./assets/img/decorate__banner-light-title.png") center no-repeat;
+            background: url("../assets/img/decorate__banner-light-title.png") center no-repeat;
             width: 574px;
             height: 574px;
 			left: 0px;
@@ -40,7 +40,7 @@
         position: relative;
         &::before{
             @include template-light;
-            background-image: url("./assets/img/decorate__banner-light-btn-group.png");
+            background-image: url("../assets/img/decorate__banner-light-btn-group.png");
             width: 603px;
             height: 603px;
 			left: 80px;
@@ -80,7 +80,7 @@
 
         &::before{
             @include template-light;
-            background-image: url("./assets/img/decorate__banner-light-img.png");
+            background-image: url("../assets/img/decorate__banner-light-img.png");
             width: 479px;
             height: 479px;
             left: -140px;
@@ -91,7 +91,7 @@
 
         &::after{
             @include template-light;
-            background-image: url("./assets/img/decorate__banner-light-img-md.png");
+            background-image: url("../assets/img/decorate__banner-light-img-md.png");
             width: 676px;
             height: 676px;
             left: -50px;
@@ -109,7 +109,7 @@
         width: 184px;
         height: 184px;
         display: flex;
-        background: url("./assets/img/bg-discount.svg") center no-repeat;
+        background: url("../assets/img/bg-discount.svg") center no-repeat;
         justify-content: center;
         align-items: center;
         text-align: center;
